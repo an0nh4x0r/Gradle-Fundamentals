@@ -1,0 +1,5 @@
+apply plugin: 'java'
+
+task customWrapper(type: Wrapper) {
+    gradleVersion = '4.8'
+}
