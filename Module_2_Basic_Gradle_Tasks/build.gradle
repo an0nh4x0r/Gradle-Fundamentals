@@ -7,3 +7,41 @@ task "Task3" // another way of creating a task in groovy.
 task Task4 // another way of creating a task in groovy.
 
 Task4.description = "Task 4 description ... wow this is awesome."
+
+Task4.doLast {
+	println "This is task 4 ... coming inside from a groovy closure."
+}
+
+Task3 << {
+	println "This is task 3 ... << this is called left shift operator ... Groovy overrides this as doLast method"
+}
+
+// basically here "<<" is behaving like "doLast"
+// "<<" this is called left shift operator
+// From gradle 5.0 ... It'll be removed.
+// "<<" left shift operator is deprecated for now.
+
+task Task5 << {
+	println "This is task 5"
+}
+
+Task5 << {
+	println "This is another closure"
+}
+
+// Here in Task5 nothing will be overridden
+// Gradle will not show any error if we execute Task5
+// It'll just append the closure.
+
+Task5.doLast {
+	println "Appending another closure"
+}
+
+task Task6 {
+	description "This is description for task 6"
+	doLast {
+		println "This is closure for task 6"
+	}
+}
+
+// Another way of creating a task .. adding description and doLast closure in groovy gradle
