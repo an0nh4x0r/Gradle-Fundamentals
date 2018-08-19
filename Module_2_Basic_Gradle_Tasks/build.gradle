@@ -45,3 +45,24 @@ task Task6 {
 }
 
 // Another way of creating a task .. adding description and doLast closure in groovy gradle
+
+task Task7 {
+	description "description for task 7 ... description comes under configuration phase."
+	doFirst {
+		println "This is doFirst closure .... comes under execution phase ... executes before anything else."
+	}
+	doLast {
+		println "This is doLast closure ... comes under execution phase ... executes after everything else."
+	}
+}
+
+// Task7 shows example of configuration phase i.e. description. 
+// Task7 shows example of execution phase i.e. doFirst & dolast closure.
+
+Task7.doFirst {
+	println "This will get prepended"
+}
+
+Task7.doLast {
+	println "This will get appended"
+}
