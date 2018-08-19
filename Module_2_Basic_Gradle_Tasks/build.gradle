@@ -39,6 +39,7 @@ Task5.doLast {
 
 task Task6 {
 	description "This is description for task 6"
+	dependsOn Task3
 	doLast {
 		println "This is closure for task 6"
 	}
@@ -48,6 +49,7 @@ task Task6 {
 
 task Task7 {
 	description "description for task 7 ... description comes under configuration phase."
+	dependsOn Task6
 	doFirst {
 		println "This is doFirst closure .... comes under execution phase ... executes before anything else."
 	}
@@ -66,3 +68,12 @@ Task7.doFirst {
 Task7.doLast {
 	println "This will get appended"
 }
+
+Task7.dependsOn Task5
+
+// Basically Task7 now has dependency on Task5
+// Task7 doFirst executes after the execution of doLast method of Task5
+// basically first Task5 executes completely and then Task7 executes.
+
+Task5.dependsOn Task4
+Task5.dependsOn Task3
