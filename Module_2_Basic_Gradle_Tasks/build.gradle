@@ -1,0 +1,9 @@
+project.task("Task1"); // project is high level object provided by groovy.
+
+task("Task2"); // another way of creating a task in groovy.
+
+task "Task3" // another way of creating a task in groovy.
+
+task Task4 // another way of creating a task in groovy.
+
+Task4.description = "Task 4 description ... wow this is awesome."
