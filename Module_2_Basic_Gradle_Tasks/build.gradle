@@ -1,3 +1,7 @@
+def projectVersion = "2.4" // This acts like a local variable and is available within this file
+project.ext.project1verion = "3.2" // This is shared along all build.gradle file
+// this can also be defined as ext.project1version = "3.2"
+
 project.task("Task1"); // project is high level object provided by groovy.
 
 task("Task2"); // another way of creating a task in groovy.
@@ -41,7 +45,7 @@ task Task6 {
 	description "This is description for task 6"
 	dependsOn Task3
 	doLast {
-		println "This is closure for task 6"
+		println "This is closure for task 6 - version $projectVersion"
 	}
 }
 
@@ -62,11 +66,11 @@ task Task7 {
 // Task7 shows example of execution phase i.e. doFirst & dolast closure.
 
 Task7.doFirst {
-	println "This will get prepended"
+	println "This will get prepended - project1verion $project.ext.project1verion"
 }
 
 Task7.doLast {
-	println "This will get appended"
+	println "This will get appended - project1verion $project1verion"
 }
 
 Task7.dependsOn Task5
