@@ -3,3 +3,25 @@ task copyImages (type: Copy) {
 	from 'src'
 	into 'dest'
 }
+
+def contentSpec = copySpec {
+	exclude 'animal-1.jpg', 'animal-3.jpg'
+	from 'src'
+}
+
+task copyImages2 (type: Copy) {
+	with contentSpec
+	into 'dest'
+}
+
+def anotherContentSpec = copySpec {
+	exclude {
+		it.file.name.endsWith("jpeg")
+	}
+	from 'src'
+}
+
+task copyImages3 (type: Copy) {
+	with anotherContentSpec
+	into 'dest'
+}
