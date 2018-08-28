@@ -1,4 +1,5 @@
 task copyImages (type: Copy) {
+	exclude 'animal-1.jpg', 'animal-3.jpg'
 	from 'src'
 	into 'dest'
 }
