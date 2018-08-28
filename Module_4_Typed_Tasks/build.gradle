@@ -1,0 +1,4 @@
+task copyImages (task: Copy) {
+	from 'src'
+	into 'dest'
+}
