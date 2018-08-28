@@ -25,3 +25,12 @@ task copyImages3 (type: Copy) {
 	with anotherContentSpec
 	into 'dest'
 }
+
+task copyConfig (type: Copy) {
+	include 'web.xml'
+	from 'src'
+	into 'config'
+	expand (
+		[resourceRefName: 'jdbc/JacketDB']
+	)
+}
