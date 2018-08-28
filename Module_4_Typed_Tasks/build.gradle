@@ -1,4 +1,4 @@
-task copyImages (task: Copy) {
+task copyImages (type: Copy) {
 	from 'src'
 	into 'dest'
 }
